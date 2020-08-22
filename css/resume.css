@@ -72,7 +72,38 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: #3B6180;
+  animation: social-icon .5s forwards;
+  will-change: background-color;
+}
+@keyframes social-icon {
+  from {
+    background-color: #495057;
+    transform: rotate(35deg) scale(1.1);
+  }
+  12.5% {
+    transform: rotate(-30deg) scale(1);
+  }
+  25% {
+    transform: rotate(25deg) scale(.9);
+  }
+  37.5% {
+    transform: rotate(-20deg) scale(1);
+  }
+  50% {
+    transform: rotate(15deg) scale(1.1);
+  }
+  62.5% {
+    transform: rotate(-10deg) scale(1);
+  }
+  75% {
+    transform: rotate(5deg) scale(.9);
+  }
+  90% {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    background-color: #3B6180;
+  }
 }
 
 .dev-icons {
@@ -101,8 +132,22 @@ p.lead {
     left: 0;
     display: flex;
     flex-direction: column;
-    width: 17rem;
     height: 100vh;
+    animation: entrance 2s ease-out;
+    animation-fill-mode: forwards;
+    will-change: width;
+  }
+  @keyframes entrance {
+    from {
+      width: 100%;
+    }
+
+    70% {
+      width: 100%;
+    }
+    to {
+      width: 20%;
+    }
   }
   #sideNav .navbar-brand {
     display: flex;
@@ -113,6 +158,29 @@ p.lead {
     max-width: 10rem;
     max-height: 10rem;
     border: 0.5rem solid rgba(255, 255, 255, 0.2);
+
+    animation: entrance-photo 2s;
+    will-change: transform;
+  }
+  @keyframes entrance-photo {
+    from {
+      transform: scale(1.6);
+    }
+    20% {
+      transform: scale(1.7);
+    }
+    45% {
+      transform: scale(1.6);
+    }
+    55% {
+      transform: scale(1.7);
+    }
+    70% {
+      transform: scale(1.6);
+    }
+    to {
+      transform: scale(1);
+    }
   }
   #sideNav .navbar-collapse {
     display: flex;
@@ -120,6 +188,23 @@ p.lead {
     flex-grow: 0;
     width: 100%;
     margin-bottom: auto;
+
+    animation: entrance-collapse 2s;
+    will-change: opacity;
+  }
+  @keyframes entrance-collapse {
+    from {
+      opacity: 0;
+      visibility: hidden;
+    }
+    70% {
+      opacity: 0;
+      visibility: hidden;
+    }
+    to {
+      opacity: 1;
+      visibility: initial;
+    }
   }
   #sideNav .navbar-collapse .navbar-nav {
     flex-direction: column;
